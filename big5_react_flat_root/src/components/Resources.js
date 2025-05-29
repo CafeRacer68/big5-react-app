@@ -1,56 +1,68 @@
-// src/components/Resources.js
-export default function Resources() {
+import React from "react";
+
+const Resources = () => {
   return (
-    <div style={{ padding: "20px" }}>
-      <h2>Helpful Resources</h2>
+    <div style={{ padding: 20, maxWidth: 800, margin: "0 auto" }}>
+      <h2 style={{ color: "#003366" }}>Resources & Support</h2>
 
-      <h3>🧠 Self-Guided Programs</h3>
-      <ul>
-        <li>
-          <a
-            href="https://www.mindspot.org.au/wellbeing-course"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Wellbeing Course
-          </a>
-        </li>
-        <li>
-          <a
-            href="https://www.mindspot.org.au/indigenous-wellbeing-course"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Indigenous Wellbeing Course
-          </a>
-        </li>
-      </ul>
+      <section style={{ marginBottom: 30 }}>
+        <h3>Self-Guided Programs</h3>
+        <ul>
+          <li>
+            <a
+              href="https://www.mindspot.org.au/treatments/wellbeing-course/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Wellbeing Course
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.mindspot.org.au/treatments/indigenous-wellbeing-course/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Indigenous Wellbeing Course
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.mindspot.org.au/treatment/what-we-offer/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              All Treatments
+            </a>
+          </li>
+        </ul>
+      </section>
 
-      <h3>📋 Assessment Tools</h3>
-      <ul>
-        <li>
-          <a
-            href="https://www.mindspot.org.au/assessment"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Online Mental Health Assessment
-          </a>
-        </li>
-      </ul>
-
-      <h3>🔗 Support Services</h3>
-      <ul>
-        <li>
-          <a
-            href="https://www.mindspot.org.au"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            MindSpot Clinic Homepage
-          </a>
-        </li>
-      </ul>
+      <section style={{ marginBottom: 30 }}>
+        <h3>Help & Support</h3>
+        <ul>
+          <li>
+            <a
+              href="https://www.lifeline.org.au/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Lifeline (24/7 Crisis Support)
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.beyondblue.org.au/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Beyond Blue
+            </a>
+          </li>
+        </ul>
+      </section>
     </div>
   );
-}
+};
+
+export default Resources;

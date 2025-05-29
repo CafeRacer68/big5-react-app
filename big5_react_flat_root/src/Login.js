@@ -28,7 +28,7 @@ const Login = () => {
         console.log("✅ Account created");
       }
 
-      navigate("/"); // ✅ Redirect to Home after login/signup
+      navigate("/"); // Redirect to home
     } catch (err) {
       console.error("❌ Auth error:", err.message);
       setError(err.message);
@@ -36,8 +36,47 @@ const Login = () => {
   };
 
   return (
-    <div style={{ padding: 20, maxWidth: 400, margin: "0 auto" }}>
+    <div
+      style={{
+        padding: 20,
+        maxWidth: 400,
+        margin: "0 auto",
+        textAlign: "center",
+      }}
+    >
+      {/* Logo */}
+      <img
+        src="/big5applogo.svg"
+        alt="Big 5 App Logo"
+        style={{ width: "150px", marginBottom: "10px" }}
+      />
+
+      {/* Tagline */}
+      <p
+        style={{
+          marginTop: 0,
+          marginBottom: "10px",
+          fontSize: "14px",
+          color: "#555",
+        }}
+      >
+        Free Digital Mental Health App
+      </p>
+
+      {/* Autoplaying YouTube video */}
+      <iframe
+        width="100%"
+        height="200"
+        src="https://www.youtube.com/embed/lYGyyJ2bzCw?autoplay=1&mute=1&playsinline=1"
+        title="Big 5 Mental Health Intro by Prof Nick Titov"
+        frameBorder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowFullScreen
+        style={{ borderRadius: "10px", marginBottom: "20px" }}
+      ></iframe>
+
       <h2>{isLogin ? "Login" : "Create Account"}</h2>
+
       <form onSubmit={handleSubmit}>
         <input
           type="email"
@@ -73,7 +112,9 @@ const Login = () => {
           {isLogin ? "Login" : "Sign Up"}
         </button>
       </form>
+
       <p style={{ color: "red" }}>{error}</p>
+
       <button
         onClick={() => setIsLogin(!isLogin)}
         style={{

@@ -15,7 +15,7 @@ const MoodCheckin = () => {
 
   const handleMoodChange = (selectedMood) => {
     setMood(selectedMood);
-    setMoodSubmitted(false); // Clear success message
+    setMoodSubmitted(false);
   };
 
   const handleSubmit = async () => {
@@ -27,7 +27,6 @@ const MoodCheckin = () => {
         mood: mood,
         timestamp: new Date().toISOString(),
       });
-
       setMoodSubmitted(true);
       setMood("");
     } catch (e) {
@@ -36,46 +35,26 @@ const MoodCheckin = () => {
   };
 
   return (
-    <div>
+    <div className="mood-checkin-container">
       <h3>How are you feeling today?</h3>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-around",
-          marginBottom: "10px",
-        }}
-      >
+      <div className="emoji-row">
         {moodEmojis.map((emoji, index) => (
           <div
             key={index}
-            style={{
-              fontSize: "2rem",
-              cursor: "pointer",
-              padding: "10px",
-              border: mood === emoji ? "2px solid #003366" : "1px solid #ccc",
-              borderRadius: "5px",
-              backgroundColor: mood === emoji ? "#e6f0ff" : "transparent",
-            }}
+            className="emoji-button"
             onClick={() => handleMoodChange(emoji)}
+            style={{
+              border: mood === emoji ? "2px solid #003366" : "2px solid #ccc",
+              backgroundColor: mood === emoji ? "#e6f0ff" : "white",
+            }}
           >
             {emoji}
           </div>
         ))}
       </div>
-      <button
-        onClick={handleSubmit}
-        disabled={!mood}
-        style={{
-          padding: "10px 20px",
-          backgroundColor: "#003366",
-          color: "white",
-          border: "none",
-          borderRadius: "5px",
-        }}
-      >
+      <button onClick={handleSubmit} disabled={!mood}>
         Submit Mood
       </button>
-
       {moodSubmitted && (
         <p style={{ color: "green", marginTop: "10px" }}>
           Mood submitted successfully!
