@@ -1,0 +1,118 @@
+/* Global Styles */
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #B3D9FF; /* Light blue background for the entire app */
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 100vh;
+  color: #333;
+}
+
+/* Button Styles */
+button {
+  background-color: #003366; /* Dark blue */
+  color: #FFCC00; /* Bright yellow */
+  font-size: 16px;
+  font-weight: bold;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 30px; /* Rounded corners */
+  cursor: pointer;
+  margin-top: 20px; /* Added margin for spacing */
+  margin-bottom: 20px; /* Added margin for bottom spacing */
+  width: 200px; /* Added width for consistent button size */
+}
+
+/* Text Area Styles */
+textarea {
+  width: 80%;
+  max-width: 400px;
+  height: 150px;
+  border-radius: 8px;
+  padding: 10px;
+  border: 2px solid #003366; /* Dark blue border */
+  margin-bottom: 20px;
+  font-size: 16px;
+  font-family: 'Roboto', sans-serif;
+}
+
+/* General Styling for Titles and Headings */
+h1, h3 {
+  color: #003366; /* Dark blue */
+  font-size: 2.5rem;
+  margin: 20px 0;
+}
+
+/* Mood Check-In Container */
+.mood-checkin-container {
+  background-color: #B3D9FF; /* Light blue background */
+  padding: 20px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 400px;
+  margin: 20px 0;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Add some shadow for a pop effect */
+}
+
+/* Emoji Styling */
+.mood-checkin-container div {
+  display: inline-block;
+  font-size: 40px;
+  margin: 10px;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #003366; /* Dark blue background */
+  color: #FFCC00; /* Yellow emoji color */
+}
+
+/* Journal Styling */
+.journal-container {
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 20px 0;
+  width: 90%;
+  max-width: 600px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.journal-container textarea {
+  width: 100%;
+  height: 150px;
+  border-radius: 8px;
+  padding: 10px;
+  border: 2px solid #003366;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.journal-container button {
+  background-color: #003366;
+  color: #FFCC00;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 20px; /* Added margin for spacing */
+  margin-bottom: 20px; /* Added margin for bottom spacing */
+  width: 200px; /* Added width for consistent button size */
+}
+
+.journal-container .previous-entries {
+  margin-top: 20px;
+}
+
+.journal-container .entry {
+  background-color: #f4f4f4;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
