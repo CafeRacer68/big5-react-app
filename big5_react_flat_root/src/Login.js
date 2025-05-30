@@ -6,6 +6,11 @@ import {
 } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 
+// Utility to detect iOS devices
+const isIOS = () => {
+  return /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+};
+
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -85,6 +90,7 @@ const Login = () => {
           onChange={(e) => setEmail(e.target.value)}
           required
           style={{ width: "100%", padding: "8px" }}
+          autoFocus={!isIOS()}
         />
         <br />
         <br />
