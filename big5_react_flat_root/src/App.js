@@ -44,7 +44,7 @@ function Home() {
           style={{ width: "200px", height: "auto" }}
         />
       </div>
-      <h1>Welcome back to th Big 5, {userName} 👋</h1>
+      <h1>Welcome back to the Big 5, {userName} 👋</h1>
       <MoodCheckin />
       <DailyMessage />
 
@@ -115,6 +115,26 @@ Plan social activities that make you feel supported and uplifted.`,
             </p>
           </details>
         ))}
+      </div>
+
+      {/* Big 5 Checklist Button */}
+      <div style={{ marginTop: "30px", textAlign: "center" }}>
+        <a
+          href="https://app.mindspot.org.au/v3/big5?website=true"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{
+            display: "inline-block",
+            backgroundColor: "#003366",
+            color: "white",
+            padding: "10px 15px",
+            borderRadius: "5px",
+            textDecoration: "none",
+            marginBottom: "20px",
+          }}
+        >
+          📝 Big 5 Checklist
+        </a>
       </div>
 
       <MoodHistoryChart />

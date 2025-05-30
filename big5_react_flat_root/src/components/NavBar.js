@@ -20,7 +20,7 @@ const NavBar = () => {
             Home
           </Link>
           <Link to="/resources" onClick={() => setMenuOpen(false)}>
-            Resources
+            Big 5 Information
           </Link>
           <Link to="/urgent-help" onClick={() => setMenuOpen(false)}>
             Urgent Help
