@@ -3,7 +3,21 @@ import React from "react";
 const Resources = () => {
   return (
     <div style={{ padding: 20, maxWidth: 800, margin: "0 auto" }}>
-      <h2 style={{ color: "#003366" }}>Resources & Support</h2>
+      <h2 style={{ color: "#003366" }}>Big5 Information</h2>
+
+      <section style={{ marginBottom: 30 }}>
+        <ul>
+          <li>
+            <a
+              href="https://www.mindspot.org.au/info/the-big-five/why-big-five-works/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Why the Big 5 Work
+            </a>
+          </li>
+        </ul>
+      </section>
 
       <section style={{ marginBottom: 30 }}>
         <h3>Self-Guided Programs</h3>

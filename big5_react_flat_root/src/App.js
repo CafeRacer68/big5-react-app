@@ -44,7 +44,7 @@ function Home() {
           style={{ width: "200px", height: "auto" }}
         />
       </div>
-      <h1>Welcome back, {userName} 👋</h1>
+      <h1>Welcome back to th Big 5, {userName} 👋</h1>
       <MoodCheckin />
       <DailyMessage />
 
