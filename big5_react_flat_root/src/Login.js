@@ -3,17 +3,14 @@ import { auth } from "./firebase";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  updateProfile,
 } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
-
-// Utility to detect iOS devices
-const isIOS = () => {
-  return /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-};
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [firstName, setFirstName] = useState("");
   const [isLogin, setIsLogin] = useState(true);
   const [error, setError] = useState("");
 
@@ -22,20 +19,25 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
-    console.log("🔐 Auth attempt:", isLogin ? "Login" : "Sign Up", email);
 
     try {
       if (isLogin) {
         await signInWithEmailAndPassword(auth, email, password);
-        console.log("✅ Logged in");
       } else {
-        await createUserWithEmailAndPassword(auth, email, password);
-        console.log("✅ Account created");
+        const userCredential = await createUserWithEmailAndPassword(
+          auth,
+          email,
+          password,
+        );
+
+        // Save the first name in Firebase Auth profile
+        await updateProfile(userCredential.user, {
+          displayName: firstName,
+        });
       }
 
-      navigate("/"); // Redirect to home
+      navigate("/"); // Go to home page
     } catch (err) {
-      console.error("❌ Auth error:", err.message);
       setError(err.message);
     }
   };
@@ -49,14 +51,11 @@ const Login = () => {
         textAlign: "center",
       }}
     >
-      {/* Logo */}
       <img
         src="/big5applogo.svg"
         alt="Big 5 App Logo"
         style={{ width: "150px", marginBottom: "10px" }}
       />
-
-      {/* Tagline */}
       <p
         style={{
           marginTop: 0,
@@ -68,42 +67,40 @@ const Login = () => {
         Free Digital Mental Health App
       </p>
 
-      {/* Autoplaying YouTube video */}
-      <iframe
-        width="100%"
-        height="200"
-        src="https://www.youtube.com/embed/lYGyyJ2bzCw?autoplay=1&mute=1&playsinline=1"
-        title="Big 5 Mental Health Intro by Prof Nick Titov"
-        frameBorder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowFullScreen
-        style={{ borderRadius: "10px", marginBottom: "20px" }}
-      ></iframe>
-
       <h2>{isLogin ? "Login" : "Create Account"}</h2>
 
       <form onSubmit={handleSubmit}>
+        {!isLogin && (
+          <>
+            <input
+              type="text"
+              placeholder="First Name"
+              value={firstName}
+              onChange={(e) => setFirstName(e.target.value)}
+              required
+              style={{ width: "100%", padding: "8px", marginBottom: "10px" }}
+            />
+          </>
+        )}
+
         <input
           type="email"
           placeholder="Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
-          style={{ width: "100%", padding: "8px" }}
-          autoFocus={!isIOS()}
+          style={{ width: "100%", padding: "8px", marginBottom: "10px" }}
         />
-        <br />
-        <br />
+
         <input
           type="password"
           placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
-          style={{ width: "100%", padding: "8px" }}
+          style={{ width: "100%", padding: "8px", marginBottom: "10px" }}
         />
-        <br />
-        <br />
+
         <button
           type="submit"
           style={{
