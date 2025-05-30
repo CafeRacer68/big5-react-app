@@ -22,7 +22,7 @@ export default function UrgentHelp() {
         </li>
         <li>
           <a
-            href="https://www.mindspot.org.au/get-help-now"
+            href="https://www.mindspot.org.au/gethelp"
             target="_blank"
             rel="noopener noreferrer"
           >

@@ -44,7 +44,10 @@ function Home() {
           style={{ width: "200px", height: "auto" }}
         />
       </div>
-      <h1>Welcome back to the Big 5, {userName} 👋</h1>
+      <h1>
+        Welcome back to the Big 5, {userName} 👋 The Big 5 App will help you do
+        more of the things that are good for your mental health.{" "}
+      </h1>
       <MoodCheckin />
       <DailyMessage />
 
