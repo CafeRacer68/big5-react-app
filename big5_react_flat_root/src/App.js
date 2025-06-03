@@ -8,7 +8,6 @@ import {
 } from "react-router-dom";
 
 import { auth, requestNotificationPermission } from "./firebase";
-import MoodCheckin from "./MoodCheckin";
 import DailyMessage from "./DailyMessage";
 // import Journal from "./Journal";
 import NavBar from "./components/NavBar";
@@ -17,6 +16,7 @@ import UrgentHelp from "./components/UrgentHelp";
 // import MoodHistoryChart from "./components/MoodHistoryChart"; // 🔁 Temporarily removed
 import Login from "./Login";
 import Big5Accordion from "./components/Big5Accordion";
+// import MoodCheckin from "./MoodCheckin"; // 🔁 Temporarily removed
 
 function Home() {
   const [userName, setUserName] = useState("");
@@ -76,7 +76,7 @@ function Home() {
         <DailyMessage />
       </div>
 
-      <MoodCheckin />
+      {/* <MoodCheckin /> Temporarily removed */}
 
       {/* Big 5 Quiz section */}
       <div style={{ margin: "40px 0 20px" }}>
