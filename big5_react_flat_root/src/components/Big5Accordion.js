@@ -14,7 +14,7 @@ The Big 5 actions are simple daily things most of us already do. We just might n
 The Big 5 App is designed to help you to do more of the Big 5.
 
 The Big 5 App won’t stop you experiencing life’s ups and downs, but it will help you to be the best version of yourself.`,
-    video: "https://www.youtube.com/embed/your-intro-video-link", // placeholder
+    video: "https://www.youtube.com/embed/lYGyyJ2bzCw",
   },
   {
     title: "1. Meaningful Activities",

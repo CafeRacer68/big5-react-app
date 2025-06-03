@@ -2,46 +2,43 @@ import React from "react";
 import { big5Messages } from "./messages";
 
 export default function DailyMessage() {
-  const today = new Date();
-  const day = today.getDay(); // 0 = Sun, 1 = Mon, ..., 6 = Sat
-  const hour = today.getHours();
+  const now = new Date();
+  const effectiveDate = new Date(now);
 
-  // Log the current day and hour
-  console.log("Current day (0=Sunday, 6=Saturday):", day);
-  console.log("Current hour:", hour);
+  // If it's before 11AM, roll back to the previous day
+  if (now.getHours() < 11) {
+    effectiveDate.setDate(now.getDate() - 1);
+  }
 
-  // Skip weekends and only show at/after 11am
-  if (day === 0 || day === 6 || hour < 11) {
-    console.log("Message not shown because it's the weekend or before 11am.");
+  const day = effectiveDate.getDay(); // 0 = Sun, 1 = Mon, ..., 6 = Sat
+
+  // Skip weekends entirely
+  if (day === 0 || day === 6) {
+    console.log("Weekend – no message shown.");
     return null;
   }
 
-  // Determine which weekday this is in the 30-message cycle
-  const startDate = new Date("2024-06-03"); // Set your start date
+  const startDate = new Date("2024-06-03");
   const daysSinceStart = Math.floor(
-    (today - startDate) / (1000 * 60 * 60 * 24),
+    (effectiveDate - startDate) / (1000 * 60 * 60 * 24),
   );
-
-  // Log the days since start
-  console.log("Days since start date:", daysSinceStart);
 
   const weekdayCount =
     Math.floor(daysSinceStart / 7) * 5 + [1, 2, 3, 4, 5].indexOf(day);
+  const todayIndex = weekdayCount % big5Messages.length;
+  const yesterdayIndex =
+    (todayIndex - 1 + big5Messages.length) % big5Messages.length;
 
-  // Log the weekday count calculation
-  console.log("Calculated weekday count:", weekdayCount);
-
-  const messageIndex = weekdayCount % big5Messages.length;
-
-  // Log the message index
-  console.log("Message index in cycle:", messageIndex);
-
-  const message = big5Messages[messageIndex];
+  const todayMessage = big5Messages[todayIndex];
+  const yesterdayMessage = big5Messages[yesterdayIndex];
 
   return (
     <div style={{ background: "#f4f4f4", padding: 20, marginTop: 20 }}>
-      <h3>🌟 Daily Big 5 Tip</h3>
-      <p>{message}</p>
+      <h3>Today’s Daily Nudge</h3>
+      <p>{todayMessage}</p>
+
+      <h4 style={{ marginTop: "20px" }}>Yesterday’s Nudge</h4>
+      <p>{yesterdayMessage}</p>
     </div>
   );
 }
