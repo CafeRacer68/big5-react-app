@@ -72,7 +72,7 @@ function Home() {
 
       {/* Re-labeled DailyMessage section */}
       <div style={{ marginBottom: "30px" }}>
-        <h2>Today’s Daily Nudge</h2>
+        <h2>Today’s Daily Big 5 Nudge</h2>
         <DailyMessage />
       </div>
 
