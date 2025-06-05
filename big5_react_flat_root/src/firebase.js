@@ -1,10 +1,14 @@
 import { initializeApp } from "firebase/app";
-import { getAuth } from "firebase/auth";
+import {
+  getAuth,
+  setPersistence,
+  browserLocalPersistence,
+} from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 import { getMessaging, getToken, onMessage } from "firebase/messaging";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCbA3GXi_UmXxXrTmm0pUQPYxClidFLZQ0",
+  apiKey: "",
   authDomain: "big-5-app.firebaseapp.com",
   projectId: "big-5-app",
   storageBucket: "big-5-app.firebasestorage.app",
@@ -17,9 +21,14 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 
 // Firebase services
-export const auth = getAuth(app);
-export const db = getFirestore(app);
-export const messaging = getMessaging(app);
+const auth = getAuth(app);
+const db = getFirestore(app);
+const messaging = getMessaging(app);
+
+// ✅ Set login persistence
+setPersistence(auth, browserLocalPersistence).catch((error) => {
+  console.error("🔥 Auth persistence error:", error);
+});
 
 // 🔔 Ask for browser permission and get token
 export const requestNotificationPermission = async () => {
@@ -49,3 +58,5 @@ export const requestNotificationPermission = async () => {
 onMessage(messaging, (payload) => {
   console.log("📩 Foreground message received:", payload);
 });
+
+export { app, auth, db, messaging };
