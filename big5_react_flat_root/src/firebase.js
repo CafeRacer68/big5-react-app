@@ -4,7 +4,7 @@ import { getFirestore } from "firebase/firestore";
 import { getMessaging, getToken, onMessage } from "firebase/messaging";
 
 const firebaseConfig = {
-  apiKey: "",
+  apiKey: "AIzaSyCbA3GXi_UmXxXrTmm0pUQPYxClidFLZQ0",
   authDomain: "big-5-app.firebaseapp.com",
   projectId: "big-5-app",
   storageBucket: "big-5-app.firebasestorage.app",
