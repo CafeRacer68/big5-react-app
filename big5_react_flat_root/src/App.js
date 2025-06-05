@@ -7,70 +7,15 @@ import {
   useNavigate,
 } from "react-router-dom";
 
-import { auth, requestNotificationPermission, db } from "./firebase";
-import {
-  collection,
-  query,
-  orderBy,
-  limit,
-  getDocs,
-  where,
-} from "firebase/firestore";
-
+import { auth, requestNotificationPermission } from "./firebase";
+import DailyNudge from "./DailyNudge"; // ✅ NEW component
 import NavBar from "./components/NavBar";
 import Resources from "./components/Resources";
 import UrgentHelp from "./components/UrgentHelp";
+// import MoodHistoryChart from "./components/MoodHistoryChart"; // 🔁 Temporarily removed
 import Login from "./Login";
 import Big5Accordion from "./components/Big5Accordion";
-
-function DailyNudgeFromFirestore() {
-  const [todayMessage, setTodayMessage] = useState(null);
-
-  useEffect(() => {
-    const fetchTodayNudge = async () => {
-      try {
-        const now = new Date();
-        const startDate = new Date("2024-06-03");
-        const daysSinceStart = Math.floor(
-          (now - startDate) / (1000 * 60 * 60 * 24),
-        );
-
-        const weekdaysPassed =
-          Math.floor(daysSinceStart / 7) * 5 +
-          [1, 2, 3, 4, 5].indexOf(now.getDay());
-
-        const messageIndex = weekdaysPassed % 30;
-        const dayNumber = messageIndex + 1;
-
-        const nudgesRef = collection(db, "nudges");
-        const q = query(nudgesRef, where("day", "==", dayNumber));
-        const querySnapshot = await getDocs(q);
-
-        if (!querySnapshot.empty) {
-          setTodayMessage(querySnapshot.docs[0].data());
-        } else {
-          setTodayMessage(null);
-        }
-      } catch (error) {
-        console.error("Error fetching daily nudge:", error);
-      }
-    };
-
-    fetchTodayNudge();
-  }, []);
-
-  if (!todayMessage) return <p>Loading today's nudge...</p>;
-
-  return (
-    <div style={{ background: "#f4f4f4", padding: 20, marginTop: 20 }}>
-      <h3>Today’s Daily Nudge</h3>
-      <p>{todayMessage.message}</p>
-      <p>
-        <strong>Big 5 Focus:</strong> {todayMessage.big5Area}
-      </p>
-    </div>
-  );
-}
+// import MoodCheckin from "./MoodCheckin"; // 🔁 Temporarily removed
 
 function Home() {
   const [userName, setUserName] = useState("");
@@ -122,10 +67,13 @@ function Home() {
         </p>
       </div>
 
+      {/* ✅ Updated Daily Nudge section */}
       <div style={{ marginBottom: "30px" }}>
         <h2>Today’s Daily Big 5 Nudge</h2>
-        <DailyNudgeFromFirestore />
+        <DailyNudge />
       </div>
+
+      {/* <MoodCheckin /> Temporarily removed */}
 
       <div style={{ margin: "40px 0 20px" }}>
         <h2>The Big 5 Checklist</h2>
@@ -154,6 +102,7 @@ function Home() {
       </div>
 
       <Big5Accordion />
+      {/* <MoodHistoryChart /> */}
     </div>
   );
 }
