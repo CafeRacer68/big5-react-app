@@ -8,14 +8,12 @@ import {
 } from "react-router-dom";
 
 import { auth, requestNotificationPermission } from "./firebase";
-import DailyNudge from "./DailyNudge"; // ✅ NEW component
+import DailyNudge from "./DailyNudge";
 import NavBar from "./components/NavBar";
 import Resources from "./components/Resources";
 import UrgentHelp from "./components/UrgentHelp";
-// import MoodHistoryChart from "./components/MoodHistoryChart"; // 🔁 Temporarily removed
 import Login from "./Login";
 import Big5Accordion from "./components/Big5Accordion";
-// import MoodCheckin from "./MoodCheckin"; // 🔁 Temporarily removed
 
 function Home() {
   const [userName, setUserName] = useState("");
@@ -45,7 +43,8 @@ function Home() {
         />
       </div>
 
-      <h1>Welcome back to The Big 5, {userName}</h1>
+      {/* 👇 Simplified Welcome heading */}
+      <h1>Welcome Back!</h1>
 
       <p style={{ marginTop: 10 }}>
         The Big 5 are five groups of actions that are strongly linked to good
@@ -67,13 +66,10 @@ function Home() {
         </p>
       </div>
 
-      {/* ✅ Updated Daily Nudge section */}
+      {/* 👇 Removed outer h2 heading */}
       <div style={{ marginBottom: "30px" }}>
-        <h2>Today’s Daily Big 5 Nudge</h2>
         <DailyNudge />
       </div>
-
-      {/* <MoodCheckin /> Temporarily removed */}
 
       <div style={{ margin: "40px 0 20px" }}>
         <h2>The Big 5 Checklist</h2>
@@ -102,7 +98,6 @@ function Home() {
       </div>
 
       <Big5Accordion />
-      {/* <MoodHistoryChart /> */}
     </div>
   );
 }
