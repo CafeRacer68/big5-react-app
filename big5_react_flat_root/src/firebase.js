@@ -3,9 +3,8 @@ import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 import { getMessaging, getToken, onMessage } from "firebase/messaging";
 
-// Firebase config
 const firebaseConfig = {
-  apiKey: "AIzaSyCbA3GXi_UmXxXrTmm0pUQPYxClidFLZQ0",
+  apiKey: "",
   authDomain: "big-5-app.firebaseapp.com",
   projectId: "big-5-app",
   storageBucket: "big-5-app.firebasestorage.app",
@@ -14,7 +13,7 @@ const firebaseConfig = {
   measurementId: "G-F3B0MF3Y8J",
 };
 
-// Initialize Firebase
+// Init Firebase
 const app = initializeApp(firebaseConfig);
 
 // Firebase services
@@ -22,29 +21,31 @@ export const auth = getAuth(app);
 export const db = getFirestore(app);
 export const messaging = getMessaging(app);
 
-// Request browser notification permission and log FCM token
+// 🔔 Ask for browser permission and get token
 export const requestNotificationPermission = async () => {
   try {
     const permission = await Notification.requestPermission();
+
     if (permission === "granted") {
       const token = await getToken(messaging, {
         vapidKey:
           "BLeYJaDcYvM3nwT90f5FxAudjrj2hc5gFlItMW0i78h-AVLEyZNg0bZswetJb1pqCdGCvgpCI6HN7D4-SGXQQLE",
       });
+
       if (token) {
-        console.log("📲 Notification token:", token);
+        console.log("📲 FCM token:", token);
       } else {
-        console.warn("🔕 No token received");
+        console.warn("🔕 No registration token available");
       }
     } else {
       console.warn("🔕 Notification permission not granted");
     }
   } catch (err) {
-    console.error("⚠️ Failed to get notification token:", err);
+    console.error("❌ Failed to get notification permission or token:", err);
   }
 };
 
-// Foreground push message handler
+// 🟢 Foreground message listener
 onMessage(messaging, (payload) => {
-  console.log("📩 Message received in foreground:", payload);
+  console.log("📩 Foreground message received:", payload);
 });
