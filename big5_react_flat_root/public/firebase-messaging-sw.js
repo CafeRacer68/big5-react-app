@@ -21,6 +21,6 @@ messaging.onBackgroundMessage(function (payload) {
   console.log("📨 Received background message: ", payload);
   self.registration.showNotification(payload.notification.title, {
     body: payload.notification.body,
-    icon: "/logo192.png",
+    icon: "/big5applogo.svg", // ✅ updated icon path
   });
 });
