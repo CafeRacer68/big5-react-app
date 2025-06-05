@@ -102,8 +102,6 @@ function Home() {
           The Big 5 Checklist
         </button>
       </div>
-
-      <Big5Accordion />
     </div>
   );
 }
