@@ -2,7 +2,7 @@
 export default function UrgentHelp() {
   return (
     <div style={{ padding: "20px" }}>
-      <h2>🚨 Get Urgent Help</h2>
+      <h2>Get Urgent Help</h2>
       <p>If you're in crisis or need immediate support, please contact:</p>
 
       <ul>
