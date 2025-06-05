@@ -61,9 +61,6 @@ export default function DailyNudge() {
       <p>
         <strong>{todayNudge.message}</strong>
       </p>
-      <p style={{ fontStyle: "italic", color: "#555" }}>
-        Big 5 Area: {todayNudge.area}
-      </p>
 
       <h4 style={{ marginTop: "20px" }}>Yesterday’s Nudge</h4>
       <p>{yesterdayNudge.message}</p>
