@@ -16,22 +16,30 @@ import Login from "./Login";
 import Big5Accordion from "./components/Big5Accordion";
 
 function Home() {
-  const [userName, setUserName] = useState("");
+  const [userName, setUserName] = useState(null);
+  const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
   useEffect(() => {
-    const user = auth.currentUser;
+    const unsubscribe = auth.onAuthStateChanged((user) => {
+      if (user) {
+        const name =
+          user.displayName?.split(" ")[0] ||
+          user.email?.split("@")[0] ||
+          "legend";
+        setUserName(name);
+      } else {
+        navigate("/login");
+      }
+      setLoading(false);
+    });
 
-    if (!user) {
-      navigate("/login");
-    } else {
-      const name =
-        user.displayName?.split(" ")[0] ||
-        user.email?.split("@")[0] ||
-        "legend";
-      setUserName(name);
-    }
+    return () => unsubscribe();
   }, [navigate]);
+
+  if (loading) {
+    return <p>Loading...</p>;
+  }
 
   return (
     <div style={{ padding: 20 }}>
@@ -43,7 +51,6 @@ function Home() {
         />
       </div>
 
-      {/* 👇 Simplified Welcome heading */}
       <h1>Welcome Back!</h1>
 
       <p style={{ marginTop: 10 }}>
@@ -66,7 +73,6 @@ function Home() {
         </p>
       </div>
 
-      {/* 👇 Removed outer h2 heading */}
       <div style={{ marginBottom: "30px" }}>
         <DailyNudge />
       </div>
