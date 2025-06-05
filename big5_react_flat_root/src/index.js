@@ -1,13 +1,16 @@
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
 
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import App from './App';
-import './index.css';
+// Render app
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(<App />);
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
-
+// Register the service worker for Firebase Messaging
+serviceWorkerRegistration.register({
+  onUpdate: (registration) => {
+    console.log("New content is available:", registration);
+  },
+});
