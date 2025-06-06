@@ -22,6 +22,12 @@ const NavBar = () => {
           <Link to="/resources" onClick={() => setMenuOpen(false)}>
             Big 5 Information
           </Link>
+          <Link to="/checklist" onClick={() => setMenuOpen(false)}>
+            Checklist
+          </Link>
+          <Link to="/advice" onClick={() => setMenuOpen(false)}>
+            Advice & FAQs
+          </Link>
           <Link to="/urgent-help" onClick={() => setMenuOpen(false)}>
             Urgent Help
           </Link>

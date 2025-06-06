@@ -13,6 +13,7 @@ import NavBar from "./components/NavBar";
 import Resources from "./components/Resources";
 import UrgentHelp from "./components/UrgentHelp";
 import Login from "./Login";
+import Checklist from "./components/Checklist"; // ✅ NEW
 import Big5Accordion from "./components/Big5Accordion";
 
 function Home() {
@@ -119,6 +120,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/resources" element={<Resources />} />
         <Route path="/urgent-help" element={<UrgentHelp />} />
+        <Route path="/checklist" element={<Checklist />} /> {/* ✅ NEW */}
       </Routes>
     </Router>
   );
