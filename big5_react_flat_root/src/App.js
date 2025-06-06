@@ -102,7 +102,7 @@ function App() {
         <Route path="/resources" element={<Resources />} />
         <Route path="/urgent-help" element={<UrgentHelp />} />
         <Route path="/checklist" element={<Checklist />} />
-        <Route path="/advice" element={<advice />} />
+        <Route path="/advice" element={<Advice />} />
       </Routes>
     </Router>
   );
