@@ -13,6 +13,7 @@ import DailyNudge from "./DailyNudge";
 import NavBar from "./components/NavBar";
 import Resources from "./components/Resources";
 import UrgentHelp from "./components/UrgentHelp";
+import Advice from "./components/advice"; // ✅ New import
 import Login from "./Login";
 import Checklist from "./components/Checklist"; // ✅ Embedded at bottom
 // import Big5Accordion from "./components/Big5Accordion"; ❌ Removed
@@ -101,7 +102,7 @@ function App() {
         <Route path="/resources" element={<Resources />} />
         <Route path="/urgent-help" element={<UrgentHelp />} />
         <Route path="/checklist" element={<Checklist />} />
-        <Route path="/advice" element={<Advice />} />
+        <Route path="/advice" element={<advice />} />
       </Routes>
     </Router>
   );

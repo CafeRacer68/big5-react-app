@@ -8,7 +8,8 @@ const Advice = () => {
       <div style={{ marginBottom: 30 }}>
         <h3>Are there costs involved?</h3>
         <p>
-          No! Our service is fully funded by the Australian Government, and there are no costs involved for our patients.
+          No! Our service is fully funded by the Australian Government, and
+          there are no costs involved to use our App.
         </p>
       </div>
     </div>
