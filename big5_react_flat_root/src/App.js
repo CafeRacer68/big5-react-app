@@ -9,6 +9,7 @@ import {
 
 import { auth, requestNotificationPermission } from "./firebase";
 import DailyNudge from "./DailyNudge";
+
 import NavBar from "./components/NavBar";
 import Resources from "./components/Resources";
 import UrgentHelp from "./components/UrgentHelp";
@@ -100,6 +101,7 @@ function App() {
         <Route path="/resources" element={<Resources />} />
         <Route path="/urgent-help" element={<UrgentHelp />} />
         <Route path="/checklist" element={<Checklist />} />
+        <Route path="/advice" element={<Advice />} />
       </Routes>
     </Router>
   );
