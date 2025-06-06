@@ -14,7 +14,7 @@ import Resources from "./components/Resources";
 import UrgentHelp from "./components/UrgentHelp";
 import Login from "./Login";
 import Checklist from "./components/Checklist"; // ✅ Embedded at bottom
-import Big5Accordion from "./components/Big5Accordion";
+// import Big5Accordion from "./components/Big5Accordion"; ❌ Removed
 
 function Home() {
   const [userName, setUserName] = useState(null);
@@ -77,8 +77,6 @@ function Home() {
       <div style={{ marginBottom: "30px" }}>
         <DailyNudge />
       </div>
-
-      <Big5Accordion />
 
       {/* ✅ Checklist now embedded at the bottom */}
       <div style={{ marginTop: "40px" }}>
