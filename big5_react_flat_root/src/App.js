@@ -13,7 +13,7 @@ import NavBar from "./components/NavBar";
 import Resources from "./components/Resources";
 import UrgentHelp from "./components/UrgentHelp";
 import Login from "./Login";
-import Checklist from "./components/Checklist"; // ✅ NEW
+import Checklist from "./components/Checklist"; // ✅ Embedded at bottom
 import Big5Accordion from "./components/Big5Accordion";
 
 function Home() {
@@ -78,30 +78,11 @@ function Home() {
         <DailyNudge />
       </div>
 
-      <div style={{ margin: "40px 0 20px" }}>
-        <h2>The Big 5 Checklist</h2>
-        <p>
-          To check your own Big 5 scores, click below. This is quick and easy
-          and will give you feedback about things you might want to consider.
-        </p>
-        <button
-          onClick={() =>
-            window.open(
-              "https://app.mindspot.org.au/v3/big5?website=true",
-              "_blank",
-            )
-          }
-          style={{
-            padding: "10px 20px",
-            backgroundColor: "#003366",
-            color: "white",
-            border: "none",
-            borderRadius: "5px",
-            marginTop: "10px",
-          }}
-        >
-          The Big 5 Checklist
-        </button>
+      <Big5Accordion />
+
+      {/* ✅ Checklist now embedded at the bottom */}
+      <div style={{ marginTop: "40px" }}>
+        <Checklist />
       </div>
     </div>
   );
@@ -120,7 +101,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/resources" element={<Resources />} />
         <Route path="/urgent-help" element={<UrgentHelp />} />
-        <Route path="/checklist" element={<Checklist />} /> {/* ✅ NEW */}
+        <Route path="/checklist" element={<Checklist />} />
       </Routes>
     </Router>
   );
