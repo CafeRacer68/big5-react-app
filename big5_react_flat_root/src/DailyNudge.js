@@ -17,17 +17,26 @@ export default function DailyNudge() {
 
         setNudges(data);
 
+        // 🔍 Debug Logs Start Here
+        console.log("🔢 Total Nudges:", data.length);
+        console.log(
+          "📅 Fetched Nudges:",
+          data.map((n) => `Day ${n.day}: ${n.message}`),
+        );
+
         const now = new Date();
         const effectiveDate = new Date(now);
 
-        // Roll back to previous day if before 11am
         if (now.getHours() < 11) {
           effectiveDate.setDate(effectiveDate.getDate() - 1);
         }
 
         const dayOfWeek = effectiveDate.getDay(); // 0 = Sunday, 1 = Monday, ...
+        console.log("🕒 Now:", now.toString());
+        console.log("📆 Effective Date:", effectiveDate.toString());
+        console.log("📆 Day of Week:", dayOfWeek);
+
         if (dayOfWeek === 0 || dayOfWeek === 6) {
-          // No nudges on weekends
           console.log("Weekend – no nudge today.");
           return;
         }
@@ -42,6 +51,14 @@ export default function DailyNudge() {
 
         const todayIndex = weekdaysPassed % data.length;
         const yesterdayIndex = (todayIndex - 1 + data.length) % data.length;
+
+        console.log("📈 Days since start:", totalDays);
+        console.log("🧮 Weekdays passed:", weekdaysPassed);
+        console.log("📌 Today Index:", todayIndex);
+        console.log("📌 Yesterday Index:", yesterdayIndex);
+        console.log("✅ Today Nudge:", data[todayIndex]?.message);
+        console.log("⏪ Yesterday Nudge:", data[yesterdayIndex]?.message);
+        // 🔍 Debug Logs End
 
         setTodayNudge(data[todayIndex]);
         setYesterdayNudge(data[yesterdayIndex]);
