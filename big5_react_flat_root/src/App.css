@@ -251,6 +251,7 @@ h3 {
   .dropbtn {
     padding: 0;
     width: auto;
+    text-align: center;
   }
 
   .dropdown-content {
