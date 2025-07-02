@@ -10,7 +10,6 @@ body {
   font-family: 'Roboto', sans-serif;
   background-color: #B3D9FF;
   -webkit-text-size-adjust: 100%;
-  /* Prevent text scaling in iOS */
 }
 
 /* Ensure the app scales to screen width */
@@ -226,6 +225,8 @@ h3 {
     background-color: transparent;
     box-shadow: none;
     padding: 0;
+    margin-left: 20px;
+    /* space between logo and menu */
     gap: 30px;
     /* space between items */
   }
@@ -266,9 +267,4 @@ h3 {
     padding: 10px 16px;
     width: 100%;
   }
-
-  @media screen and (min-width: 768px) {
-    .menu a:first-child {
-      margin-left: 20px;
-    }
-  }
+}
