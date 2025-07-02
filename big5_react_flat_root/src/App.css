@@ -266,4 +266,9 @@ h3 {
     padding: 10px 16px;
     width: 100%;
   }
-}
+
+  @media screen and (min-width: 768px) {
+    .menu a:first-child {
+      margin-left: 20px;
+    }
+  }
