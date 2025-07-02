@@ -120,4 +120,156 @@ h3 {
   margin-top: 20px;
 }
 
-.journal-container .entry
+.journal-container .entry {
+  background-color: #f4f4f4;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Navbar styles */
+.navbar {
+  width: 100%;
+  background-color: #003366;
+  padding: 10px 20px;
+  box-sizing: border-box;
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-logo img {
+  height: 40px;
+}
+
+.menu-toggle {
+  font-size: 28px;
+  background: none;
+  color: #FFCC00;
+  border: none;
+  cursor: pointer;
+}
+
+.menu {
+  display: none;
+  flex-direction: column;
+  align-items: flex-start;
+  background-color: #003366;
+  position: absolute;
+  top: 60px;
+  left: 0;
+  width: 100%;
+  padding: 10px 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 999;
+}
+
+.menu a {
+  color: #FFCC00;
+  text-decoration: none;
+  padding: 10px 0;
+  width: 100%;
+}
+
+.menu.open {
+  display: flex;
+}
+
+/* Responsive fallback for larger screens */
+@media screen and (min-width: 768px) {
+  .menu-toggle {
+    display: none;
+  }
+
+  .menu {
+    display: flex !important;
+    position: static;
+    flex-direction: row;
+    background-color: transparent;
+    box-shadow: none;
+    padding: 0;
+  }
+
+  .menu a {
+    margin-left: 20px;
+    padding: 0;
+  }
+}
+
+/* Dropdown styling: minimal and safe */
+.dropdown {
+  position: relative;
+}
+
+/* Dropdown toggle button */
+.dropbtn {
+  background: none;
+  border: none;
+  color: #FFCC00;
+  cursor: pointer;
+  font-size: inherit;
+  padding: 10px 0;
+  width: 100%;
+  text-align: left;
+}
+
+/* Dropdown content hidden by default */
+.dropdown-content {
+  display: none;
+  flex-direction: column;
+  width: 100%;
+}
+
+/* Show dropdown when toggled */
+.dropdown-content.show {
+  display: flex;
+}
+
+/* Links inside dropdown */
+.dropdown-content a {
+  color: #FFCC00;
+  text-decoration: none;
+  padding: 10px 0;
+  width: 100%;
+}
+
+/* Hover style */
+.dropdown-content a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Large screens: float dropdown below About Us */
+@media screen and (min-width: 768px) {
+  .dropdown {
+    position: relative;
+  }
+
+  .dropbtn {
+    padding: 0;
+    width: auto;
+  }
+
+  .dropdown-content {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #003366;
+    min-width: 200px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    display: none;
+    z-index: 999;
+  }
+
+  .dropdown-content.show {
+    display: block;
+  }
+
+  .dropdown-content a {
+    padding: 10px 16px;
+    width: 100%;
+  }
+}
