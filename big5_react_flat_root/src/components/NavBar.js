@@ -21,8 +21,8 @@ const NavBar = () => {
             Big 5 Information
           </Link>
 
-          <Link to="/faqs" onClick={() => setMenuOpen(false)}>
-            FAQs & Downloads
+          <Link to="/urgent-help" onClick={() => setMenuOpen(false)}>
+            Urgent Help
           </Link>
 
           <div className="dropdown">
@@ -71,10 +71,6 @@ const NavBar = () => {
               </Link>
             </div>
           </div>
-
-          <Link to="/urgent-help" onClick={() => setMenuOpen(false)}>
-            Urgent Help
-          </Link>
         </div>
       </div>
     </nav>
