@@ -16,7 +16,10 @@ import UrgentHelp from "./components/UrgentHelp";
 import Advice from "./components/advice"; // ✅ Advice component
 import Login from "./Login";
 import Checklist from "./components/Checklist";
-import FaqPage from "./FaqPage"; // ✅ NEW: Import the FAQ Page
+import FaqPage from "./components/FaqPage";
+import TermsPage from "./components/TermsPage";
+import PrivacyPage from "./components/PrivacyPage";
+import PurposePage from "./components/Purpose";
 
 function Home() {
   const [userName, setUserName] = useState(null);
@@ -102,7 +105,10 @@ function App() {
         <Route path="/urgent-help" element={<UrgentHelp />} />
         <Route path="/checklist" element={<Checklist />} />
         <Route path="/advice" element={<Advice />} />
-        <Route path="/faqs" element={<FaqPage />} /> {/* ✅ NEW: FAQ route */}
+        <Route path="/faqs" element={<FaqPage />} />
+        <Route path="/terms" element={<TermsPage />} />
+        <Route path="/privacy" element={<PrivacyPage />} />
+        <Route path="/purpose" element={<PurposePage />} /> {/* ✅ Fixed */}
       </Routes>
     </Router>
   );
