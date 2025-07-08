@@ -13,10 +13,10 @@ import DailyNudge from "./DailyNudge";
 import NavBar from "./components/NavBar";
 import Resources from "./components/Resources";
 import UrgentHelp from "./components/UrgentHelp";
-import Advice from "./components/advice"; // ✅ New import
+import Advice from "./components/advice"; // ✅ Advice component
 import Login from "./Login";
-import Checklist from "./components/Checklist"; // ✅ Embedded at bottom
-// import Big5Accordion from "./components/Big5Accordion"; ❌ Removed
+import Checklist from "./components/Checklist";
+import FaqPage from "./FaqPage"; // ✅ NEW: Import the FAQ Page
 
 function Home() {
   const [userName, setUserName] = useState(null);
@@ -80,7 +80,6 @@ function Home() {
         <DailyNudge />
       </div>
 
-      {/* ✅ Checklist now embedded at the bottom */}
       <div style={{ marginTop: "40px" }}>
         <Checklist />
       </div>
@@ -103,6 +102,7 @@ function App() {
         <Route path="/urgent-help" element={<UrgentHelp />} />
         <Route path="/checklist" element={<Checklist />} />
         <Route path="/advice" element={<Advice />} />
+        <Route path="/faqs" element={<FaqPage />} /> {/* ✅ NEW: FAQ route */}
       </Routes>
     </Router>
   );
